@@ -35,7 +35,6 @@
             flex-direction: column;
         }
 
-        /* Top Hero Section */
         header {
             background: var(--navy);
             color: white;
@@ -59,7 +58,7 @@
         .profile-pic {
             width: 180px;
             height: 180px;
-            border-radius: 20px; /* Modern squircle */
+            border-radius: 20px;
             object-fit: cover;
             border: 4px solid var(--gold);
             transform: rotate(-3deg);
@@ -101,11 +100,31 @@
 
         .contact-bar a:hover {
             background: var(--gold);
-            border-color: var(--gold);
             color: var(--navy);
         }
 
-        /* Content Sections */
+        /* Internship Highlight Box */
+        .internship-highlight {
+            background: #f1f5f9;
+            border: 2px dashed var(--gold);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .internship-badge {
+            background: var(--scarlet);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-weight: 800;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+
         .content {
             padding: 50px;
             display: grid;
@@ -138,39 +157,19 @@
             font-size: 1.1rem;
             color: var(--slate);
             line-height: 1.8;
+            margin-bottom: 0;
         }
 
         .card {
             margin-bottom: 30px;
             padding-left: 20px;
             border-left: 2px solid #e2e8f0;
-            transition: border-color 0.3s;
         }
 
-        .card:hover {
-            border-left-color: var(--gold);
-        }
+        .card-title { font-weight: 700; font-size: 1.1rem; display: block; }
+        .card-sub { color: var(--gold); font-weight: 600; font-size: 0.9rem; display: block; margin-bottom: 10px; }
 
-        .card-title {
-            font-weight: 700;
-            font-size: 1.1rem;
-            display: block;
-        }
-
-        .card-sub {
-            color: var(--gold);
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        ul {
-            padding-left: 18px;
-            color: var(--slate);
-            font-size: 0.95rem;
-        }
-
+        ul { padding-left: 18px; color: var(--slate); font-size: 0.95rem; }
         li { margin-bottom: 8px; }
 
         .education-box {
@@ -181,9 +180,8 @@
         }
 
         @media (max-width: 850px) {
-            header { flex-direction: column; text-align: center; padding: 40px 20px; }
+            header { flex-direction: column; text-align: center; }
             .content { grid-template-columns: 1fr; padding: 30px; }
-            .contact-bar { justify-content: center; }
         }
     </style>
 </head>
@@ -207,10 +205,18 @@
         <section class="full-width">
             <h2>Professional Profile</h2>
             <p class="about-text">
-                Sophomore at Rutgers University–New Brunswick studying Accounting with a concentration in Entrepreneurship. 
-                Passionate about business strategy and financial integrity. Through entrepreneurial ventures and leadership 
-                roles, I combine creative problem-solving with rigorous financial analysis to drive positive organizational impact.
+                 I’m a sophomore at Rutgers University–New Brunswick studying Accounting with a concentration in Entrepreneurship. I’ve always been interested in how businesses work behind the scenes, and accounting has shown me how important financial information is in helping companies make smart decisions and stay on track. My entrepreneurship concentration has also encouraged me to think creatively and look at business challenges from different perspectives. I’m excited to keep learning, build on my leadership experience, and take on opportunities where I can grow while making a positive impact.
+
             </p>
+        </section>
+
+        <section class="full-width">
+            <div class="internship-highlight">
+                <div class="internship-badge">Upcoming</div>
+                <div>
+                    <strong>Assurance Intern</strong> at <strong>RSM</strong> | New York City
+                </div>
+            </div>
         </section>
 
         <section>
@@ -220,50 +226,60 @@
                 <span class="card-title">Katz’s Sourdough</span>
                 <span class="card-sub">Founder | Jul 2025 – Present</span>
                 <ul>
-                    <li>Managed end-to-end production for 60+ customers.</li>
-                    <li>Conducted detailed product costing and inventory accounting.</li>
+                    <li>Founded and operated a small business specializing in organic, vegan, and naturally fermented sourdough bread</li>
+                    <li>Oversaw an end-to-end production process (baking, packaging, and selling) to consistently deliver high-quality products to my +60 customers</li>
+                    <li>Conducted detailed product costing, accounting for ingredients, equipment, packaging, and time spent baking and selling</li>
+                    <li>Developed an efficient production schedule to increase output and profitability while maintaining artisanal standards</li>
                 </ul>
             </div>
+            
+            <div class="card">
+                <span class="card-title">Somerset Ambulatory Surgical Center</span>
+                <span class="card-sub">Medical Records Analyst | Dec 2024 – Jan 2025</span>
+                <ul>
+                    <li>Analyzed patients’ medical records to ensure proper sequencing and completeness in compliance with legal standards</li>
+                    <li>Enhanced data integrity by verifying information with the doctors to confirm the accuracy of dates, times, and signatures</li>
+                    <li>Scanned documents and uploaded them into the software system to increase efficient data retrieval and accessibility</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <span class="card-title">Be BIO Cafe</span>
+                <span class="card-sub">Sales Assistant | Oct 2021 – Dec 2021, Jul 2025 – Aug 2025</span>
+                <ul>
+                    <li>Effectively managed sales operations while monitoring cash flow and inventory levels to ensure optimal performance</li>
+                    <li>Delivered exceptional service by engaging enthusiastically and empathetically with customers at the market</li>
+                    <li>Gained insight and practical, hands-on experience in various aspects of business operations, management, and strategy</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <section>
+            <h2>Leadership & Education</h2>
 
             <div class="card">
                 <span class="card-title">J-Biz (Rutgers Jewish Business Club)</span>
                 <span class="card-sub">VP & Treasurer | Aug 2025 – Present</span>
                 <ul>
-                    <li>Overseeing financial transactions and university invoicing.</li>
-                    <li>Managing budget allocations for student-led events.</li>
-                </ul>
-            </div>
+                    <li>Managed and tracked all financial transactions, ensuring accurate records of income, expenses, and reimbursements </li>
+                    <li> Prepared and submitted invoices to Rutgers in a timely manner to secure and strengthen the club’s financial stability</li>
+                    <li>Collaborated with the Rutgers Student Activities Business Office to allocate funds and approve budgets for club events</li>
 
-            <div class="card">
-                <span class="card-title">Somerset Ambulatory Surgical Center</span>
-                <span class="card-sub">Medical Records Analyst | 2024 – 2025</span>
-                <ul>
-                    <li>Audited medical records for legal compliance and accuracy.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section>
-            <h2>Leadership & Teaching</h2>
-            
-            <div class="card">
-                <span class="card-title">Congregation Beth El</span>
-                <span class="card-sub">Judaic Studies Teacher</span>
-                <ul>
-                    <li>Designed lesson plans for 20+ students.</li>
                 </ul>
             </div>
 
             <div class="card">
                 <span class="card-title">Phi Mu Sorority</span>
-                <span class="card-sub">Community Service Chair</span>
+                <span class="card-sub">Community Service Chair | Sep 2024 – Dec 2024</span>
                 <ul>
-                    <li>Coordinated service for 100+ members.</li>
+                    <li> Tracked service hours for +100 members by monitoring their progress to ensure participation goals in line with the sorority were met</li>
+                    <li>Coordinated with several local volunteer organizations to facilitate service opportunities and long-term partnerships</li>
+                    <li>Planned and executed impactful community service events in coordination with the treasurer for budgeting purposes</li>
                 </ul>
             </div>
 
             <div class="education-box">
-                <h2>Education</h2>
                 <div style="font-weight: 700;">Rutgers University</div>
                 <div style="color: var(--gold);">B.S. in Accounting</div>
                 <div style="font-size: 0.9rem; margin-top: 10px;">
