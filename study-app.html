@@ -140,12 +140,42 @@
 
     <script>
         const cards = [
-            { t: "Revenue Recognition", d: "The principle that revenue is recorded when it is earned, not necessarily when cash is received." },
-            { t: "Materiality", d: "The threshold above which missing or incorrect information is considered to have an impact on the decision-making of users." },
-            { t: "Going Concern", d: "The assumption that a company will remain in business indefinitely and not be forced to liquidate." },
-            { t: "Conservatism", d: "The concept of recognizing expenses and liabilities as soon as possible, but assets and revenues only when they are assured." },
-            { t: "Internal Control", d: "A process designed to provide reasonable assurance regarding the achievement of objectives in effectiveness and efficiency." }
-        ];
+    // --- FAR (Financial Accounting & Reporting) ---
+    { t: "Accrual Accounting", d: "Records the impact of transactions when they occur, not necessarily when cash is paid or received." },
+    { t: "Amortization", d: "The systematic allocation of the cost of an intangible asset over its useful life." },
+    { t: "Contra-Asset Account", d: "An account with a credit balance that reduces the value of a related asset (e.g., Accumulated Depreciation)." },
+    { t: "Deferred Revenue", d: "Cash received before services are performed; recorded as a liability until earned." },
+    { t: "Depreciation", d: "The process of allocating the cost of a tangible asset over its useful life." },
+    { t: "FIFO (First-In, First-Out)", d: "Inventory method where the oldest costs are assigned to Cost of Goods Sold first." },
+    { t: "LIFO (Last-In, First-Out)", d: "Inventory method where the most recent costs are assigned to Cost of Goods Sold first." },
+    { t: "Impairment", d: "A permanent decline in the fair value of an asset below its carrying amount (Book Value)." },
+    { t: "Net Realizable Value (NRV)", d: "Estimated selling price minus the costs of completion, disposal, and transportation." },
+    { t: "Subsequent Event", d: "An event occurring between the balance sheet date and the date financial statements are issued." },
+
+    // --- AUD (Auditing & Attestation) ---
+    { t: "Audit Risk", d: "The risk that the auditor expresses an inappropriate opinion when financial statements are materially misstated." },
+    { t: "Assertions", d: "Representations by management (existence, completeness, valuation, etc.) embodied in the financial statements." },
+    { t: "Independence", d: "The avoidance of circumstances that would cause a reasonable third party to doubt an auditor's integrity." },
+    { t: "Internal Control", d: "A process designed to provide reasonable assurance regarding the achievement of entity objectives." },
+    { t: "Management Rep Letter", d: "A letter from management to the auditor confirming the truthfulness of oral representations given during the audit." },
+    { t: "Sampling Risk", d: "The risk that the auditor's conclusion based on a sample differs from the conclusion if the whole population were tested." },
+    { t: "Segregation of Duties", d: "Dividing responsibilities for Authorization, Recording, and Custody (ARC) to prevent fraud/errors." },
+    { t: "Substantive Procedures", d: "Audit procedures designed to detect material misstatements at the assertion level." },
+    { t: "Unmodified Opinion", d: "A 'clean' audit report stating the financial statements present fairly in all material respects." },
+    { t: "Working Papers", d: "The record of audit procedures performed, evidence obtained, and conclusions reached by the auditor." },
+
+    // --- REG (Regulation & Tax) ---
+    { t: "Adjusted Basis", d: "The cost of an asset plus capital improvements, minus accumulated depreciation." },
+    { t: "Capital Gain", d: "The profit from the sale of an asset held for personal or investment purposes." },
+    { t: "Fiduciary", d: "A person who holds a legal or ethical relationship of trust with one or more other parties." },
+    { t: "Gift Tax Exclusion", d: "The amount an individual can give to another person annually without incurring a gift tax." },
+    { t: "Gross Income", d: "All income from whatever source derived, unless specifically excluded by the tax code." },
+    { t: "Itemized Deductions", d: "Specific expenses (like mortgage interest) that taxpayers subtract from AGI instead of the standard deduction." },
+    { t: "Negligence", d: "Failure to exercise the level of care that a reasonably prudent person would exercise in similar circumstances." },
+    { t: "Nexus", d: "A sufficient connection between a business and a state that allows the state to tax that business." },
+    { t: "Pass-Through Entity", d: "A business (like an LLC) where income passes to owners to be taxed on their individual returns." },
+    { t: "Statute of Frauds", d: "A legal rule requiring certain contracts (like real estate sales) to be in writing to be enforceable." }
+];
 
         let index = 0;
         const cardEl = document.getElementById('card');
