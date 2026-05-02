@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPA Study Flashcards</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #3498db;
+            --bg: #f8f9fa;
+            --card-front: #ffffff;
+            --card-back: #34495e;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: var(--bg);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Top Navigation Link */
+        .nav-header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* App Container */
+        .app-wrapper {
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+        }
+
+        h1 { color: var(--primary); margin-bottom: 5px; }
+        p.subtitle { color: #7f8c8d; margin-bottom: 30px; }
+
+        /* Flashcard Logic */
+        .flashcard-container {
+            height: 300px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flashcard {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flashcard.flipped { transform: rotateY(180deg); }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            box-sizing: border-box;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            font-size: 1.4rem;
+            text-align: center;
+        }
+
+        .front { background: var(--card-front); color: var(--primary); font-weight: bold; border: 2px solid #eee; }
+        .back { background: var(--card-back); color: white; transform: rotateY(180deg); font-size: 1.1rem; line-height: 1.6; }
+
+        /* Controls */
+        .controls {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover { background: #2980b9; transform: translateY(-2px); }
+        button:disabled { background: #ccc; cursor: not-allowed; transform: none; }
+
+        #counter { font-weight: bold; color: var(--primary); width: 80px; }
+    </style>
+</head>
+<body>
+
+    <div class="nav-header">
+        <a href="index.html" class="back-link">← Back to Main Repository</a>
+    </div>
+
+    <div class="app-wrapper">
+        <h1>CPA Exam Prep</h1>
+        <p class="subtitle">Mastering the Terminology</p>
+
+        <div class="flashcard-container" onclick="flipCard()">
+            <div class="flashcard" id="card">
+                <div class="card-face front" id="term">Loading...</div>
+                <div class="card-face back" id="definition">Loading...</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="prevBtn" onclick="prevCard()">Previous</button>
+            <span id="counter">1 / 1</span>
+            <button id="nextBtn" onclick="nextCard()">Next</button>
+        </div>
+        <p style="margin-top: 20px; font-size: 0.8rem; color: #999;">Tip: Use Spacebar to flip or Arrow keys to navigate</p>
+    </div>
+
+    <script>
+        const cards = [
+            { t: "Revenue Recognition", d: "The principle that revenue is recorded when it is earned, not necessarily when cash is received." },
+            { t: "Materiality", d: "The threshold above which missing or incorrect information is considered to have an impact on the decision-making of users." },
+            { t: "Going Concern", d: "The assumption that a company will remain in business indefinitely and not be forced to liquidate." },
+            { t: "Conservatism", d: "The concept of recognizing expenses and liabilities as soon as possible, but assets and revenues only when they are assured." },
+            { t: "Internal Control", d: "A process designed to provide reasonable assurance regarding the achievement of objectives in effectiveness and efficiency." }
+        ];
+
+        let index = 0;
+        const cardEl = document.getElementById('card');
+        const termEl = document.getElementById('term');
+        const defEl = document.getElementById('definition');
+        const countEl = document.getElementById('counter');
+
+        function updateUI() {
+            // Reset flip state before changing content
+            cardEl.classList.remove('flipped');
+            
+            setTimeout(() => {
+                termEl.innerText = cards[index].t;
+                defEl.innerText = cards[index].d;
+                countEl.innerText = `${index + 1} / ${cards.length}`;
+                document.getElementById('prevBtn').disabled = index === 0;
+                document.getElementById('nextBtn').disabled = index === cards.length - 1;
+            }, 150); 
+        }
+
+        function flipCard() { cardEl.classList.toggle('flipped'); }
+        function nextCard() { if(index < cards.length - 1) { index++; updateUI(); } }
+        function prevCard() { if(index > 0) { index--; updateUI(); } }
+
+        // Keyboard Support
+        document.addEventListener('keydown', (e) => {
+            if(e.code === 'Space') flipCard();
+            if(e.code === 'ArrowRight') nextCard();
+            if(e.code === 'ArrowLeft') prevCard();
+        });
+
+        // Start app
+        updateUI();
+    </script>
+</body>
+</html>
